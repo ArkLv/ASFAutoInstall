@@ -1,2 +1,2 @@
 # ASFAutoInstall
-在Linux平台上自动安装运行Steam挂卡工具ArchiSteamFarm
+下载运行Steam挂卡工具ArchiSteamFarm一键脚本
