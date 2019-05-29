@@ -19,3 +19,4 @@ echo -e "}" >> $asfpath/config/$account.json
 chmod +x $asfpath/ArchiSteamFarm
 screen -dmS asf
 screen -x -S asf -p 0 -X stuff "$asfpath/ArchiSteamFarm\n"
+screen -r asf
