@@ -1,5 +1,5 @@
 # ASFAutoRun
-下载运行Steam挂卡工具ArchiSteamFarm一键脚本
+下载并运行Steam挂卡工具ArchiSteamFarm一键脚本
 
 使用方法：
 ```
