@@ -2,7 +2,7 @@
 
 asfpath=/root/asf
 
-yum -y install icu unzip
+yum -y install icu unzip screen
 
 wget https://github.com/JustArchiNET/ArchiSteamFarm/releases/download/4.0.1.9/ASF-linux-x64.zip
 unzip -d $asfpath ASF-linux-x64.zip
@@ -17,4 +17,5 @@ echo -e "\t\"Enabled\": true," >> $asfpath/config/$account.json
 echo -e "}" >> $asfpath/config/$account.json
 
 chmod +x $asfpath/ArchiSteamFarm
-$asfpath/ArchiSteamFarm
+screen -dmS asf
+screen -x -S asf -p 0 -X stuff "$asfpath/ArchiSteamFarm\n"
