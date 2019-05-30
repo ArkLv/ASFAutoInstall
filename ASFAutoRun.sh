@@ -1,6 +1,7 @@
 #!/bin/bash
 
 asfver=$(curl https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest | awk -F "tag/" '{print $2}' | awk -F "\"" '{print $1}')
+asfpath=/root/asf
 asfrun=/root/asf/ArchiSteamFarm
 asfconf=/root/asf/config/$bot.json
 
