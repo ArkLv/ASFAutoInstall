@@ -1,22 +1,25 @@
 #!/bin/bash
 
-asfpath=/root/asf
+asfver=$(curl https://github.com/JustArchiNET/ArchiSteamFarm/releases/latest | awk -F "tag/" '{print $2}' | awk -F "\"" '{print $1}')
+asfrun=/root/asf/ArchiSteamFarm
+asfconf=/root/asf/config/$bot.json
 
 yum -y install icu unzip screen
 
-wget https://github.com/JustArchiNET/ArchiSteamFarm/releases/download/4.0.1.9/ASF-linux-x64.zip
+wget https://github.com/JustArchiNET/ArchiSteamFarm/releases/download/$asfver/ASF-linux-x64.zip
 unzip -d $asfpath ASF-linux-x64.zip
 
-clear
+clear 
+read -p "Please name your bot: " bot
 read -p "Please input your steam account: " account
 read -p "Please input your password: " passwd
-echo -e "{" > $asfpath/config/$account.json
-echo -e "\t\"SteamLogin\": \"$account\"," >> $asfpath/config/$account.json
-echo -e "\t\"SteamPassword\": \"$passwd\"," >> $asfpath/config/$account.json
-echo -e "\t\"Enabled\": true," >> $asfpath/config/$account.json
-echo -e "}" >> $asfpath/config/$account.json
+echo -e "{" > $asfconf
+echo -e "\t\"SteamLogin\": \"$account\"," >> $asfconf
+echo -e "\t\"SteamPassword\": \"$passwd\"," >> $asfconf
+echo -e "\t\"Enabled\": true," >> $asfconf
+echo -e "}" >> $asfconf
 
-chmod +x $asfpath/ArchiSteamFarm
+chmod +x $asfrun
 screen -dmS asf
-screen -x -S asf -p 0 -X stuff "$asfpath/ArchiSteamFarm\n"
+screen -x -S asf -p 0 -X stuff "$asfrun\n"
 screen -r asf
